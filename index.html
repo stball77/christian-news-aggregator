@@ -6,37 +6,46 @@
   <meta name="description" content="Aggregated Christian news from multiple sources.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body{font-family:Arial, sans-serif;max-width:800px;margin:0 auto;padding:20px;}
-    h1{color:#2c3e50;}
-    article{margin-bottom:20px;border-bottom:1px solid #ddd;padding-bottom:10px;}
-    article h2{margin:0;}
-    small{color:#888;}
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+    .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+    h1 { text-align: center; margin-bottom: 20px; color: #2c3e50; }
+    .article-card { background: #fff; margin-bottom: 20px; border-radius: 5px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .article-card img { width: 100%; height: auto; display: block; }
+    .article-content { padding: 15px; }
+    .article-content h2 { margin: 0 0 10px; font-size: 1.3em; }
+    .article-content p { margin: 0 0 8px; line-height: 1.4; }
+    small { color: #666; }
   </style>
 </head>
 <body>
-  <h1>Christian News Aggregator</h1>
-  <p><em>Last updated: 2026-04-08 00:00:00</em></p>
-  
-  <article>
-    <h2><a href="https://www.christianpost.com/news/new-study-shows-growth-of-churches.html">New Study Shows Growth of Churches</a></h2>
-    <p>A recent survey reports that church attendance has increased in several regions...</p>
-    <p><small>Christian Post – 2026-04-07</small></p>
-  </article>
-  
-  <article>
-    <h2><a href="https://www.mnnonline.org/news/mission-work-continues-in-africa/">Mission Work Continues in Africa</a></h2>
-    <p>Missionaries provide medical aid and support to rural communities in Africa...</p>
-    <p><small>Mission Network News – 2026-04-07</small></p>
-  </article>
-  
-  <article>
-    <h2><a href="https://www.catholicnewsagency.com/news/vatican-announces-new-initiative">Vatican Announces New Initiative</a></h2>
-    <p>The Vatican has launched a new initiative to promote environmental stewardship...</p>
-    <p><small>Catholic News Agency – 2026-04-06</small></p>
-  </article>
-  
-  <footer>
-    <p>Content is aggregated from external RSS feeds. All trademarks and copyrights belong to their respective owners. Only headlines and summaries are displayed; click through to read the original articles.</p>
-  </footer>
+  <div class="container">
+    <h1>Christian News Aggregator</h1>
+    <p><em>Last updated: 2026-04-08 00:00:00</em></p>
+    <div class="article-card">
+      <a href="https://www.christianpost.com/news/new-study-shows-growth-of-churches.html"><img src="https://source.unsplash.com/800x400/?church" alt="New Study Shows Growth of Churches"></a>
+      <div class="article-content">
+        <h2><a href="https://www.christianpost.com/news/new-study-shows-growth-of-churches.html">New Study Shows Growth of Churches</a></h2>
+        <p>A recent survey reports that church attendance has increased in several regions...</p>
+        <p><small>Christian Post – 2026-04-07</small></p>
+      </div>
+    </div>
+    <div class="article-card">
+      <a href="https://www.mnnonline.org/news/mission-work-continues-in-africa/"><img src="https://source.unsplash.com/800x400/?mission" alt="Mission Work Continues in Africa"></a>
+      <div class="article-content">
+        <h2><a href="https://www.mnnonline.org/news/mission-work-continues-in-africa/">Mission Work Continues in Africa</a></h2>
+        <p>Missionaries provide medical aid and support to rural communities in Africa...</p>
+        <p><small>Mission Network News – 2026-04-07</small></p>
+      </div>
+    </div>
+    <div class="article-card">
+      <a href="https://www.catholicnewsagency.com/news/vatican-announces-new-initiative"><img src="https://source.unsplash.com/800x400/?cross" alt="Vatican Announces New Initiative"></a>
+      <div class="article-content">
+        <h2><a href="https://www.catholicnewsagency.com/news/vatican-announces-new-initiative">Vatican Announces New Initiative</a></h2>
+        <p>The Vatican has launched a new initiative to promote environmental stewardship...</p>
+        <p><small>Catholic News Agency – 2026-04-06</small></p>
+      </div>
+    </div>
+    <footer><p>Content is aggregated from external RSS feeds. All trademarks and copyrights belong to their respective owners. Only headlines, images and summaries are displayed; click through to read the original articles.</p></footer>
+  </div>
 </body>
 </html>
