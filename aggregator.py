@@ -79,12 +79,22 @@ def parse_rss_feed(xml_data: bytes, source_name: str, max_items: int = 5):
                     pub_date = pub_date_dt.date()
                 except Exception:
                     pub_date = None
+            # Extract image URL from media:content or enclosure tags for RSS
+            image_url = ''
+            media = item.find('{http://search.yahoo.com/mrss/}content')
+            if media is not None and media.attrib.get('url'):
+                image_url = media.attrib['url']
+            else:
+                enclosure = item.find('enclosure')
+                if enclosure is not None and enclosure.attrib.get('url'):
+                    image_url = enclosure.attrib['url']
             entries.append({
                 'source': source_name,
                 'title': title.strip(),
                 'link': link.strip(),
                 'pub_date': pub_date or datetime.date.today(),
-                'description': description.strip()
+                'description': description.strip(),
+                'image': image_url
             })
     else:
         # Atom format (default namespace may exist)
@@ -105,12 +115,38 @@ def parse_rss_feed(xml_data: bytes, source_name: str, max_items: int = 5):
                     pub_date = pub_date_dt.date()
                 except Exception:
                     pub_date = None
+            # Extract image URL for Atom entries
+            image_url = ''
+            # media:content or media:thumbnail in Yahoo Media RSS namespace
+            media = entry.find('{http://search.yahoo.com/mrss/}content')
+            if media is not None and media.attrib.get('url'):
+                image_url = media.attrib['url']
+            else:
+                media_thumb = entry.find('{http://search.yahoo.com/mrss/}thumbnail')
+                if media_thumb is not None and media_thumb.attrib.get('url'):
+                    image_url = media_thumb.attrib['url']
+                else:
+                    # Atom enclosure tag
+                    enclosure = entry.find(f'{ns}enclosure')
+                    if enclosure is not None and enclosure.attrib.get('url'):
+                        image_url = enclosure.attrib['url']
+                    else:
+                        # Link with rel='enclosure' and type starting with 'image'
+                        for link_elem in entry.findall(f'{ns}link'):
+                            if (
+                                link_elem.attrib.get('rel') == 'enclosure'
+                                and link_elem.attrib.get('type', '').startswith('image')
+                                and link_elem.attrib.get('href')
+                            ):
+                                image_url = link_elem.attrib['href']
+                                break
             entries.append({
                 'source': source_name,
                 'title': title.strip(),
                 'link': link.strip(),
                 'pub_date': pub_date or datetime.date.today(),
-                'description': description.strip()
+                'description': description.strip(),
+                'image': image_url
             })
     return entries
 
@@ -139,7 +175,11 @@ def generate_html(entries, output_path: str):
         desc = html.escape(entry['description'])
         date_str = entry['pub_date'].strftime('%Y-%m-%d')
         source = html.escape(entry['source'])
+        image_html = html.escape(entry.get('image', ''))
         html_parts.append("  <article>")
+        # Insert image if available with inline styling
+        if image_html:
+            html_parts.append(f"    <img src='{image_html}' alt='{title_html}' style='max-width:100%;height:auto;margin-bottom:10px;'>")
         html_parts.append(f"    <h2><a href='{link_html}'>{title_html}</a></h2>")
         if desc:
             html_parts.append(f"    <p>{desc}</p>")
