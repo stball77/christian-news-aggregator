@@ -1,51 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Christian News Aggregator</title>
-  <meta name="description" content="Aggregated Christian news from multiple sources.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
-    .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-    h1 { text-align: center; margin-bottom: 20px; color: #2c3e50; }
-    .article-card { background: #fff; margin-bottom: 20px; border-radius: 5px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    .article-card img { width: 100%; height: auto; display: block; }
-    .article-content { padding: 15px; }
-    .article-content h2 { margin: 0 0 10px; font-size: 1.3em; }
-    .article-content p { margin: 0 0 8px; line-height: 1.4; }
-    small { color: #666; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian News Aggregator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .card {
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 31%;
+            display: flex;
+            flex-direction: column;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .card-content {
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-title {
+            font-size: 1.25em;
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        .card-title:hover {
+            text-decoration: underline;
+        }
+        .card-desc {
+            flex: 1;
+            font-size: 0.95em;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+        .card-meta {
+            font-size: 0.85em;
+            color: #6c757d;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+        @media (max-width: 768px) {
+            .card {
+                max-width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Christian News Aggregator</h1>
-    <p><em>Last updated: 2026-04-08 00:00:00</em></p>
-    <div class="article-card">
-      <a href="https://www.christianpost.com/news/new-study-shows-growth-of-churches.html"><img src="https://source.unsplash.com/800x400/?church" alt="New Study Shows Growth of Churches"></a>
-      <div class="article-content">
-        <h2><a href="https://www.christianpost.com/news/new-study-shows-growth-of-churches.html">New Study Shows Growth of Churches</a></h2>
-        <p>A recent survey reports that church attendance has increased in several regions...</p>
-        <p><small>Christian Post – 2026-04-07</small></p>
-      </div>
+    <header>
+        <h1>Christian News Aggregator</h1>
+        <p>Latest stories from Christian news sources</p>
+    </header>
+    <div class="container">
+        <div class="card">
+            <img src="https://publisher-ncreg.s3.us-east-2.amazonaws.com/pb-ncregister/swp/hv9hms/media/20240410090452_1a31f783f051631733ccb81d9324c5d8c3a2c3212f892222aa2690fdb01b84e5.jpg" alt="Communion photo">
+            <div class="card-content">
+                <a class="card-title" href="https://www.ncregister.com/cna/eucharist-stolen-in-mexico-2026-april" target="_blank">Eucharist Stolen, Faithful Robbed During Adoration in Mexico On Holy Saturday</a>
+                <p class="card-desc">In Mexico's Diocese of Tlaxcala, thieves assaulted worshippers during adoration, stealing a ciborium with consecrated hosts. Local clergy call for intense prayer and the safe return of the Eucharist.</p>
+                <div class="card-meta">World &ndash; April 7 2026 | Source: National Catholic Register</div>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://publisher-ncreg.s3.us-east-2.amazonaws.com/pb-ncregister/swp/hv9hms/media/20260407150456_d13a6e9b823602d24edf4e0c5cb82b05b6ff7ad9c9cf2e9228574b04394cefa0.jpg" alt="Bishop Michel Guillaud">
+            <div class="card-content">
+                <a class="card-title" href="https://www.ncregister.com/interview/algerian-bishop-interview-ahead-of-pope-s-visit" target="_blank">St. Augustine Inspires Christians and Muslims Alike, Says Algerian Bishop Ahead of Pope’s Visit</a>
+                <p class="card-desc">Bishop Michel Guillaud, who leads the Diocese of Constantine in Algeria, explains how St. Augustine’s legacy resonates across faiths and describes preparations for Pope Leo XIV’s upcoming visit.</p>
+                <div class="card-meta">Interview &ndash; April 7 2026 | Source: National Catholic Register</div>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://publisher-ncreg.s3.us-east-2.amazonaws.com/pb-ncregister/swp/hv9hms/media/20260407140448_5ce48d03c14fc9ef6baac360e2ee79c305dd5b48d2029d90360789cad9b19da4.jpg" alt="Dominican Sisters">
+            <div class="card-content">
+                <a class="card-title" href="https://www.ncregister.com/news/dominican-sisters-of-hawthorne-response-new-york" target="_blank">Dominican Sisters Challenge New York Gender‑Identity Law in Court</a>
+                <p class="card-desc">The Dominican Sisters of Hawthorne, who have cared for terminal cancer patients for over a century, are suing New York over mandates they say would force them to violate Catholic teaching on gender identity.</p>
+                <div class="card-meta">News &ndash; April 7 2026 | Source: National Catholic Register</div>
+            </div>
+        </div>
     </div>
-    <div class="article-card">
-      <a href="https://www.mnnonline.org/news/mission-work-continues-in-africa/"><img src="https://source.unsplash.com/800x400/?mission" alt="Mission Work Continues in Africa"></a>
-      <div class="article-content">
-        <h2><a href="https://www.mnnonline.org/news/mission-work-continues-in-africa/">Mission Work Continues in Africa</a></h2>
-        <p>Missionaries provide medical aid and support to rural communities in Africa...</p>
-        <p><small>Mission Network News – 2026-04-07</small></p>
-      </div>
-    </div>
-    <div class="article-card">
-      <a href="https://www.catholicnewsagency.com/news/vatican-announces-new-initiative"><img src="https://source.unsplash.com/800x400/?cross" alt="Vatican Announces New Initiative"></a>
-      <div class="article-content">
-        <h2><a href="https://www.catholicnewsagency.com/news/vatican-announces-new-initiative">Vatican Announces New Initiative</a></h2>
-        <p>The Vatican has launched a new initiative to promote environmental stewardship...</p>
-        <p><small>Catholic News Agency – 2026-04-06</small></p>
-      </div>
-    </div>
-    <footer><p>Content is aggregated from external RSS feeds. All trademarks and copyrights belong to their respective owners. Only headlines, images and summaries are displayed; click through to read the original articles.</p></footer>
-  </div>
+    <footer>
+        Last updated: April 8 2026<br>
+        Powered by open news feeds
+    </footer>
 </body>
 </html>
